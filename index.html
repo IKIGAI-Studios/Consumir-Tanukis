@@ -15,7 +15,6 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="http://localhost:3000/web/img/monkey.png" alt="logo" style="height:2.5em">
                     Tanukitchen
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +24,8 @@
         
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
+
+                        <!-- ! Este menu no funciona -->
                         <li class="nav-item">
                             <a class="nav-link" href="/mostrarProductos">PRODUCTOS</a>
                         </li>
@@ -61,13 +62,14 @@
                     <table class="table table-hover">
                         <thead>
                             <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
+                            <th>User</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Password</th>
-                            <th>Foto</th>
+                            <th>Photo</th>
                             <th>Editar / Borrar</th>
                         </thead>
-                        <tbody id="usuarios">
+                        <tbody id="users">
                         </tbody>
                     </table>
                 </div>
@@ -77,28 +79,28 @@
             
             <!-- INSERTAR USUARIOS -->
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalInsertarUsuario">
-                Insertar usuario
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNewUser">
+                Insert User
             </button>
             
             <!-- Modal -->
-            <div class="modal fade" id="modalInsertarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalNewUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form action="#" method="POST" id="formNuevoUsuario">
+                    <form action="#" method="POST" id="formNewUser">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Insertar usuario</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Insert User</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <input class="form-control mb-3" type="text" name="nuevoNombre" id="nuevoNombre" placeholder="Nombre">
-                                <input class="form-control mb-3" type="email" name="nuevoCorreo" id="nuevoCorreo" placeholder="Correo">
-                                <input class="form-control mb-3" type="password" name="nuevoPassword" id="nuevoPassword" placeholder="Password">
-                                <input class="form-control" type="file" name="nuevaFoto" id="nuevaFoto" placeholder="Foto">
+                                <input class="form-control mb-3" type="text" name="newUser" id="newUser" placeholder="User">
+                                <input class="form-control mb-3" type="text" name="newName" id="newName" placeholder="Name">
+                                <input class="form-control mb-3" type="email" name="newEmail" id="newEmail" placeholder="Email">
+                                <input class="form-control mb-3" type="password" name="newPassword" id="newPassword" placeholder="Password">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Guardar usuario</button>
+                                <button type="submit" class="btn btn-primary">Save User</button>
                             </div>
                         </div>
                     </form>
@@ -108,23 +110,24 @@
             
             <!-- EDITAR USUARIOS -->
             <!-- Modal -->
-            <div class="modal fade" id="editarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalEditUser" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form action="#" method="POST" id="formEditarUsuario">
+                    <form action="#" method="POST" id="formEditUser">
                         <div class="modal-content"> 
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Insertar usuario</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modify User</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <input class="form-control mb-3" type="hidden" name="editarId" id="editarId">
-                                <input class="form-control mb-3" type="text" name="editarNombre" id="editarNombre" placeholder="Nombre">
-                                <input class="form-control mb-3" type="email" name="editarCorreo" id="editarCorreo" placeholder="Correo">
-                                <input class="form-control mb-3" type="password" name="editarPassword" id="editarPassword" placeholder="Password">
+                                <input class="form-control mb-3" type="hidden" name="editId" id="editId"> <!-- ! This value won't change, the name is only illustrative -->
+                                <input class="form-control mb-3" type="text" name="editUser" id="editUser" placeholder="User">
+                                <input class="form-control mb-3" type="text" name="editName" id="editName" placeholder="Name">
+                                <input class="form-control mb-3" type="email" name="editEmail" id="editEmail" placeholder="Email">
+                                <input class="form-control mb-3" type="password" name="editPassword" id="editPassword" placeholder="Password">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Guardar usuario</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
                         </div>
                     </form>
