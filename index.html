@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="js/jquery-3.6.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+        <title>Inicio</title>
+    </head>
+    <body>
+        <!-- MENU -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="http://localhost:3000/web/img/monkey.png" alt="logo" style="height:2.5em">
+                    Tanukitchen
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mostrarProductos">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mostrarUsuarios">USUARIOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/registrarProductos">REGISTRAR PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/login">INGRESAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/registrarse">REGISTRARSE</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- FIN MENU -->
+
+        <div class="container">
+
+            <!-- MENSAJES -->
+            <div id="mensajes" class="mt-3">
+                
+            </div>
+            <!-- FIN MENSAJES -->
+            
+            <!-- MOSTRAR USUARIOS -->
+            <div class="card mb-5">
+                <div class="card-header"><h1>Usuarios</h1></div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Password</th>
+                            <th>Foto</th>
+                            <th>Editar / Borrar</th>
+                        </thead>
+                        <tbody id="usuarios">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+            <!-- FIN MOSTRAR USUARIOS -->
+            
+            <!-- INSERTAR USUARIOS -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalInsertarUsuario">
+                Insertar usuario
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="modalInsertarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form action="#" method="POST" id="formNuevoUsuario">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Insertar usuario</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input class="form-control mb-3" type="text" name="nuevoNombre" id="nuevoNombre" placeholder="Nombre">
+                                <input class="form-control mb-3" type="email" name="nuevoCorreo" id="nuevoCorreo" placeholder="Correo">
+                                <input class="form-control mb-3" type="password" name="nuevoPassword" id="nuevoPassword" placeholder="Password">
+                                <input class="form-control" type="file" name="nuevaFoto" id="nuevaFoto" placeholder="Foto">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Guardar usuario</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- INSERTAR USUARIOS -->
+            
+            <!-- EDITAR USUARIOS -->
+            <!-- Modal -->
+            <div class="modal fade" id="editarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form action="#" method="POST" id="formEditarUsuario">
+                        <div class="modal-content"> 
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Insertar usuario</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input class="form-control mb-3" type="hidden" name="editarId" id="editarId">
+                                <input class="form-control mb-3" type="text" name="editarNombre" id="editarNombre" placeholder="Nombre">
+                                <input class="form-control mb-3" type="email" name="editarCorreo" id="editarCorreo" placeholder="Correo">
+                                <input class="form-control mb-3" type="password" name="editarPassword" id="editarPassword" placeholder="Password">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Guardar usuario</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- EDITAR USUARIOS -->
+            
+        </div>
+        
+        <script src="js/script.js"></script>
+    </body>
+</html>
